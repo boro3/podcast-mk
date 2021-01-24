@@ -1,0 +1,13 @@
+{
+    "server": {
+        "port": 8080
+    },
+    "db": {
+        "username": "",
+        "password": "",
+        "host": "",
+        "dbfeeds": "",
+        "dbepisodes": "",
+        "dbpodcast": ""
+    }
+}
