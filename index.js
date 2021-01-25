@@ -1,0 +1,27 @@
+const cfg = require('./pkg/config');
+const podcast = require ('./handlers/podcast');
+const episodes = require ('./handlers/episodes');
+require('./pkg/db');
+
+
+const express = require ('express');
+const bodyParser = require('body-parser');
+
+const api = express();
+api.use(bodyParser.json());
+
+//get All podcasts
+api.get('/api/v1/podcasts', podcast.getAll);
+
+//get Episodes for podcast by ID
+api.get('/api/v1/episodes/:id', episodes.getByPodcastId);
+
+
+api.listen(cfg.get('server').port, err => {
+    if (err) {
+        console.error('Could not start server!', err);
+    }
+    console.log('Server successfully started on port', cfg.get('server').port);
+});
+
+

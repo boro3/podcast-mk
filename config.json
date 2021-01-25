@@ -6,8 +6,6 @@
         "username": "",
         "password": "",
         "host": "",
-        "dbfeeds": "",
-        "dbepisodes": "",
-        "dbpodcast": ""
+        "dbname": "podcast"
     }
 }

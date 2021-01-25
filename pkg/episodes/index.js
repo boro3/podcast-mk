@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Feeds = mongoose.model(
+const Episode = mongoose.model(
     'episode',
     {
         title: String,
@@ -16,18 +16,32 @@ const Feeds = mongoose.model(
     'episode'
 );
 
-const save = async (url) => {
-    try {
-        let data = new Feeds(url);
-        data._deleted=false;
-        data._created=new Date().toISOString();
-        await data.save();
-        return data;
-    } catch (err) {
-        console.log(err);
-    }
+const save = async (edata) => {
+    let data = new Episode(edata);
+    data._deleted = false;
+    data._created = new Date().toISOString();
+    await data.save();
+    return data;
 };
 
+const findByTitle = async (title) => {
+    let data = await Episode.findOne({ title: title })
+    return data;
+};
+
+const findByUrl = async (url) => {
+    let data = await Episode.findOne({ url: url })
+    return data;
+};
+const getByPodcastId = async (podcastId) => {
+    let data = await Episode.find({ pid: podcastId, _deleted: false })
+    return data;
+};
+
+
 module.exports = {
-    save
+    save,
+    findByTitle,
+    findByUrl,
+    getByPodcastId
 }

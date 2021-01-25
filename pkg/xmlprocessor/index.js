@@ -53,30 +53,35 @@ const processPodcastInfo = (xmlFeed) => {
     return podcast;
 };
 
-const processPodcastEpisodes = (xmlFeed)=>{
+const processPodcastEpisodes = (xmlFeed) => {
     var tObj = parser.getTraversalObj(xmlFeed, options);
     var jsonObj = (parser.convertToJson(tObj, options));
     let episodes = [];
-    let episode={};
+    let episode = {};
 
     if (Array.isArray(jsonObj.rss.channel.item)) {
         jsonObj.rss.channel.item.forEach(ep => {
             episode.title = ep.title;
             if (ep.description) {
                 episode.description = ep.description;
+            } else if (ep['itunes:summary']) {
+                episode.description = ep['itunes:summary'];
             } else {
                 episode.description = 'Unavaiable';
             }
+
             if (ep.pubDate) {
                 episode.pubDate = ep.pubDate;
             } else {
                 episode.pubDate = 'Unavaiable';
             }
+
             if (ep.guid) {
                 episode.guid = ep.guid['#text'] !== undefined ? ep.guid['#text'] : ep.guid;
             } else {
                 episode.guid = 'Unavaiable';
             }
+            
             if (ep.link) {
                 episode.link = ep.link;
             } else {
@@ -111,7 +116,7 @@ const processPodcastEpisodes = (xmlFeed)=>{
         episode.url = jsonObj.rss.channel.item.enclosure.attr['@url'];
         episodes.push(episode);
         episode = {};
-    }    
+    }
     return episodes;
 };
 

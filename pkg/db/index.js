@@ -3,10 +3,10 @@ const cft = require('../config')
 
 let username = cft.get('db').username;
 let password = cft.get('db').password;
-let dbfeedname = cft.get('db').dbfeeds;
+let dbname = cft.get('db').dbname;
 let host = cft.get('db').host;
 
-let dsn = `mongodb+srv://${username}:${password}@${host}/${dbfeedname}?retryWrites=true&w=majority`;
+let dsn = `mongodb+srv://${username}:${password}@${host}/${dbname}?retryWrites=true&w=majority`;
 
 
 mongoose.connect(
