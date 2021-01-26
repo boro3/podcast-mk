@@ -25,7 +25,7 @@ const save = async (edata) => {
 };
 
 const findByTitle = async (title) => {
-    let data = await Episode.findOne({ title: title })
+    let data = await Episode.findOne({ title: title });
     return data;
 };
 
@@ -34,7 +34,11 @@ const findByUrl = async (url) => {
     return data;
 };
 const getByPodcastId = async (podcastId) => {
-    let data = await Episode.find({ pid: podcastId, _deleted: false })
+    let data = await Episode.find({ pid: podcastId, _deleted: false });
+    return data;
+};
+const getLastEpisodeByPodcastId = async (podcastId) => {
+    let data = await Episode.find({ pid: podcastId, _deleted: false }).sort({pubDate:-1}).limit(1);
     return data;
 };
 
@@ -43,5 +47,6 @@ module.exports = {
     save,
     findByTitle,
     findByUrl,
-    getByPodcastId
-}
+    getByPodcastId,
+    getLastEpisodeByPodcastId
+};

@@ -3,6 +3,7 @@ const episodeModel = require('./../pkg/episodes');
 const getByPodcastId = async (req, res) => {
     try {
         let data = await episodeModel.getByPodcastId(req.params.pid);
+        console.log(data)
         res.status(200).send(data);
     } catch (err) {
         console.log(err);

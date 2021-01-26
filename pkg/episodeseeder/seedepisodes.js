@@ -1,7 +1,7 @@
-const episodesModel = require('./../episodes');
-const podcastModel = require('./../podcast');
+const episodesModel = require('../episodes');
+const podcastModel = require('../podcast');
 const fetch = require('node-fetch');
-const xmlProcessor = require('./../xmlprocessor');
+const xmlProcessor = require('../xmlprocessor');
 
 const saveEpisodes = async (feedUrl) => {
     let podcast = await podcastModel.getOneByUrl(feedUrl);

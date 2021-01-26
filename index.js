@@ -15,6 +15,8 @@ api.get('/api/v1/podcast', podcast.getAll);
 
 //get Episodes for podcast by ID
 api.get('/api/v1/podcast/:pid/episodes', episodes.getByPodcastId);
+//get Episode for podcast by ID and episode id
+// api.get('/api/v1/podcast/:pid/episodes/:eid', episodes.getEpisodeByPodcastId);
 
 api.listen(cfg.get('server').port, err => {
     if (err) {
