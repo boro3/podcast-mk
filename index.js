@@ -11,11 +11,10 @@ const api = express();
 api.use(bodyParser.json());
 
 //get All podcasts
-api.get('/api/v1/podcasts', podcast.getAll);
+api.get('/api/v1/podcast', podcast.getAll);
 
 //get Episodes for podcast by ID
-api.get('/api/v1/episodes/:id', episodes.getByPodcastId);
-
+api.get('/api/v1/podcast/:pid/episodes', episodes.getByPodcastId);
 
 api.listen(cfg.get('server').port, err => {
     if (err) {

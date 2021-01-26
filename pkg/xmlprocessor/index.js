@@ -71,7 +71,7 @@ const processPodcastEpisodes = (xmlFeed) => {
             }
 
             if (ep.pubDate) {
-                episode.pubDate = ep.pubDate;
+                episode.pubDate = new Date(ep.pubDate);
             } else {
                 episode.pubDate = 'Unavaiable';
             }
@@ -81,7 +81,7 @@ const processPodcastEpisodes = (xmlFeed) => {
             } else {
                 episode.guid = 'Unavaiable';
             }
-            
+
             if (ep.link) {
                 episode.link = ep.link;
             } else {
@@ -99,7 +99,7 @@ const processPodcastEpisodes = (xmlFeed) => {
             episode.description = 'Unavaiable';
         }
         if (jsonObj.rss.channel.item.pubDate) {
-            episode.pubDate = jsonObj.rss.channel.item.pubDate;
+            episode.pubDate = new Date(jsonObj.rss.channel.item.pubDate).toISOString();
         } else {
             episode.pubDate = 'Unavaiable';
         }

@@ -6,7 +6,7 @@ const Episode = mongoose.model(
         title: String,
         pid: String,
         description: String,
-        pubDate: String,
+        pubDate: Date,
         guid: String,
         link: String,
         url: String,

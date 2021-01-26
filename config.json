@@ -3,9 +3,9 @@
         "port": 8080
     },
     "db": {
-        "username": "",
-        "password": "",
-        "host": "",
+        "username": "borce_ss",
+        "password": "boro!759",
+        "host": "cluster0.vw2pn.mongodb.net",
         "dbname": "podcast"
     }
 }
