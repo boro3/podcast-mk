@@ -12,7 +12,7 @@ const saveEpisodes = async (feedUrl) => {
         let ep = await episodesModel.findByUrl(episodes[i].url)
         if (!ep)
             episodes[i].pid = podcast._id;
-         episodesModel.save(episodes[i]);
+        episodesModel.save(episodes[i]);
     }
 };
 

@@ -99,7 +99,7 @@ const processPodcastEpisodes = (xmlFeed) => {
             episode.description = 'Unavaiable';
         }
         if (jsonObj.rss.channel.item.pubDate) {
-            episode.pubDate = new Date(jsonObj.rss.channel.item.pubDate).toISOString();
+            episode.pubDate = new Date(jsonObj.rss.channel.item.pubDate);
         } else {
             episode.pubDate = 'Unavaiable';
         }

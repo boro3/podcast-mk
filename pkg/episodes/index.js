@@ -33,7 +33,7 @@ const findByUrl = async (url) => {
     let data = await Episode.findOne({ url: url })
     return data;
 };
-const getByPodcastId = async (podcastId) => {
+const getEpisodesByPodcastId = async (podcastId) => {
     let data = await Episode.find({ pid: podcastId, _deleted: false });
     return data;
 };
@@ -47,6 +47,6 @@ module.exports = {
     save,
     findByTitle,
     findByUrl,
-    getByPodcastId,
+    getEpisodesByPodcastId,
     getLastEpisodeByPodcastId
 };
