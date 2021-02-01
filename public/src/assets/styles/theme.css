@@ -1,0 +1,16 @@
+:root {
+    /* font */
+    --font-size-small: 12px;
+    --font-size-normal: 14px;
+    --font-size-big: 16px;
+
+    --font-color-input: #5C5C5C;
+
+    /* inputs */
+    --input-text-border-radius: 3px;
+    --input-text-border: 1px solid #89A1AD;
+
+    /* buttons */
+    --button-primary-color:  #54a0ff;
+    --button-delete-color:  red;
+}
